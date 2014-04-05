@@ -31,7 +31,7 @@ class AppModel extends Model {
 		return $query;
 	}
 	
-	public function getOptions($objectType = '', $objectID = '') {
+	private function _getObjectConditions($objectType = '', $objectID = '') {
 		$conditions = array();
 		if ($objectType) {
 			$conditions[$this->alias.'.object_type'] = $objectType;
@@ -39,6 +39,18 @@ class AppModel extends Model {
 		if ($objectID) {
 			$conditions[$this->alias.'.object_id'] = $objectID;
 		}
-		return $this->find('list', compact('conditions'));
+		return compact('conditions');
+	}
+	
+	public function getOptions($objectType = '', $objectID = '') {
+		return $this->find('list', $this->_getObjectConditions($objectType, $objectID));
+	}
+	
+	public function getObject($objectType = '', $objectID = '') {
+		return $this->find('first', $this->_getObjectConditions($objectType, $objectID));
+	}
+	
+	public function getObjectList($objectType = '', $objectID = '') {
+		return $this->find('all', $this->_getObjectConditions($objectType, $objectID));
 	}
 }

@@ -1,20 +1,15 @@
 <?
 App::uses('Article', 'Article.Model');
 class Product extends Article {
-	/*
+	
 	var $hasOne = array(
-		'Category' => array(
+		'Media' => array(
 			'foreignKey' => 'object_id',
+			'conditions' => array('Media.object_type' => 'News', 'Media.main' => 1),
 			'dependent' => true
 		)
 	);
-*/
+	
 	protected $objectType = 'Product';
 	
-	/*
-	public $belongsTo = array(
-		'className' => 'Category',
-		'foreing'
-	);
-	*/
 }

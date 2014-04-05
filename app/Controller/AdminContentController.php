@@ -13,7 +13,7 @@ class AdminContentController extends AdminController {
             	'fields' => array('title', 'slug')
             ),
         	'News' => array(
-        		'fields' => array('id', 'created', 'title', 'teaser', 'published')
+        		'fields' => array('id', 'created', 'title', 'teaser', 'featured', 'published')
         	),
         	'Category' => array(
         		'fields' => array('id', 'title')

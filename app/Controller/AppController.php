@@ -22,4 +22,11 @@ class AppController extends Controller {
 	    // fdebug("App:isAuthorized!\r\n");
 		return true;
 	}
+	
+	public function beforeRender() {
+		$this->set('aNavBar', $this->aNavBar);
+		$this->set('currMenu', $this->currMenu);
+		$this->set('aBottomLinks', $this->aBottomLinks);
+		$this->set('currLink', $this->currLink);
+	}
 }

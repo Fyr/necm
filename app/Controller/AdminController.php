@@ -44,13 +44,6 @@ class AdminController extends AppController {
 		return $curr_menu;
 	}
 
-	public function beforeRender() {
-		$this->set('aNavBar', $this->aNavBar);
-		$this->set('currMenu', $this->currMenu);
-		$this->set('aBottomLinks', $this->aBottomLinks);
-		$this->set('currLink', $this->currLink);
-	}
-
 	public function delete($id) {
 		$this->autoRender = false;
 
