@@ -3,12 +3,18 @@ App::uses('AppHelper', 'View/Helper');
 class ArticleVarsHelper extends AppHelper {
 	public $helpers = array('Media');
 
-	function init($aArticle, $objectType, &$url, &$title, &$teaser = '', &$src = '', &$size = 'noresize', &$featured = false, &$id = '') {
+	function init($aArticle, $objectType, &$url, &$title, &$teaser = '', &$src = '', $size = 'noresize', &$featured = false, &$id = '') {
 		$id = $aArticle[$objectType]['id'];
-		$url = '/'.$objectType.'/'.$id; //  $this->Router->url($aArticle);
+		$aController = array(
+			'Page' => 'SitePages',
+			'News' => 'SiteNews',
+			'Product' => 'SiteProducts'
+		);
+		$url = Router::url(array('controller' => $aController[$objectType], 'action' => 'view', $id)); // $this->Router->url($aArticle);
 		$title = $aArticle[$objectType]['title'];
 		$teaser = nl2br($aArticle[$objectType]['teaser']);
-		$src = '';
+		$src = (isset($aArticle['Media']) && $aArticle['Media'] && isset($aArticle['Media']['id']) && $aArticle['Media']['id']) 
+			? $this->Media->imageUrl($aArticle, $size) : '';
 		$featured = false;
 		if (isset($aArticle['Media'][0])) {
 			$media = $aArticle['Media'][0];

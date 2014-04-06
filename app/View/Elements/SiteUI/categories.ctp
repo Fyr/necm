@@ -19,8 +19,9 @@
 		<ul>
 <?			
 		}
+		$url = array('controller' => 'SiteProducts', 'action' => 'index', '?' => array('data[Product][cat_id]' => $subcat['Category']['id'], 'data[Product][subcat_id]' => $subcat['Subcategory']['id']));
 ?>
-			<li><a href="/SiteProduct/<?=$subcat['Category']['id']?>/<?=$subcat['Subcategory']['id']?>"><?=$subcat['Subcategory']['title']?></a></li>
+			<li><a href="<?=$this->Html->url($url)?>"><?=$subcat['Subcategory']['title']?></a></li>
 <?
 	}
 ?>

@@ -49,6 +49,7 @@ class PCArticleComponent extends Component {
 	
 	public function edit($id = 0, $lSaved = false) {
 		$aFlags = array('published', 'featured');
+		$article = $this->model()->findById($id);
 		if ($this->_->request->is('post') || $this->_->request->is('put')) {
 			if ($id && !$this->_->request->data($this->field('id'))) {
 				// auto add ID for update a record
@@ -63,8 +64,8 @@ class PCArticleComponent extends Component {
 				$id = $this->model()->id;
 				$lSaved = true;
 			}
+			$this->_->request->data = array_merge($this->_->request->data, $article);
 		} elseif ($id) {
-			$article = $this->model()->findById($id);
 
 			// Set up flags
 			foreach($aFlags as $field) {

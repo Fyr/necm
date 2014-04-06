@@ -2,7 +2,7 @@
 App::uses('Controller', 'Controller');
 class AppController extends Controller {
     public $paginate;
-	public $aNavBar = array(), $aBottomLinks = array(), $currMenu, $currLink;
+	public $aNavBar = array(), $aBottomLinks = array(), $currMenu = '', $currLink = '', $pageTitle = '';
     
     public function __construct($request = null, $response = null) {
 	    $this->_beforeInit();
@@ -28,5 +28,6 @@ class AppController extends Controller {
 		$this->set('currMenu', $this->currMenu);
 		$this->set('aBottomLinks', $this->aBottomLinks);
 		$this->set('currLink', $this->currLink);
+		$this->set('pageTitle', $this->pageTitle);
 	}
 }

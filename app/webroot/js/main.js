@@ -11,12 +11,13 @@ $(function(){
             speed:500,
             adaptiveHeight: true
         }));
-    })
+    });
 
 
     $('.side_lvl_1_n').click(function(e){
       e.preventDefault();
       $(this).parents('li').toggleClass('opened').find('ul').slideToggle();
-    })
+    });
 
-})
+    $('.autocompleteOff').attr('autocompleteOff', 'off');
+});

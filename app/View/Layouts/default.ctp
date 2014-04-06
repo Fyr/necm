@@ -79,55 +79,12 @@
 
 				<div class="main_col">
 					<div class="main_col_block">
-						<div class="main_col_h">
-							<div class="main_col_h_in">
-								<h1>Welcome</h1>
-							</div>
-						</div>
+						<?=$this->element('/SiteUI/page_title')?>
 						<div class="main_col_c">
 							<div class="main_col_c_in">
-								<div class="main_2_cold">
-									<div class="main_col_img"><a href=""><img src="/img/_temp/article_img.jpg" alt=""></a></div>
-									<p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo </p>
-									<p>Duis aute irure dolor in reprehenderit in <strong>voluptate velit</strong> esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, <a href="">aspernatur</a> aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam </p>
-								</div>
+								<?=$this->fetch('content')?>
 							</div>
 						</div>
-					</div>
-					<div class="main_col_block">
-						<div class="main_col_h">
-							<div class="main_col_h_in">
-								<h2>Новинки</h2>
-							</div>
-						</div>
-						<div class="main_col_c">
-							<div class="main_col_c_in">
-								<ul class="main_news_list">
-									<li class="main_news_li">
-										<div class="main_col_img">
-											<a href="">
-												<span class="img_item_h">Лампы светодиодные LED<br/> Вторая строка</span>
-												<span class="img_item_price">1500 руб.</span>
-												<img src="/img/_temp/item_img.jpg" alt="">
-											</a>
-										</div>
-									</li>
-									<li class="main_news_li">
-										<div class="main_col_img">
-											<a href="">
-												<span class="img_item_h">Лампы светодиодные LED<br/> Вторая строка</span>
-												<span class="img_item_price">1500 руб.</span>
-												<img src="/img/_temp/item_img.jpg" alt="">
-											</a>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="main_col_block">
-						<?php echo $this->fetch('content'); ?>
 					</div>
 				</div>
 			</div>
@@ -154,5 +111,6 @@
 		<div class="width_fix">Все права защищены, 2012</div>
 	</div>
 </footer>
+<?//$this->element('sql_dump'); ?>
 </body>
 </html>

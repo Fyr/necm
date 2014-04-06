@@ -33,6 +33,7 @@
 	</div>
 <?
 	echo $this->PHForm->input('title');
+	echo $this->PHForm->input('price', array('class' => 'input-small'));
 	echo $this->PHForm->input('teaser');
 	// echo $this->PHForm->input('Product.title');
 	// echo $this->element('Article.edit_slug');

@@ -2,11 +2,10 @@
 <?
 	foreach($aNavBar as $id => $item) {
 		$class = ($id == $currMenu) ? ' class="active"' : '';
-		if (!isset($item['submenu'])) {
 ?>
-				<li<?=$class?>><div class="fix"><?=$this->Html->link($item['label'], $item['href'])?></div>
+				<li<?=$class?>><div class="fix"><?=$this->Html->link($item['label'], $item['href'])?>
 <?
-		} else {
+		if (isset($item['submenu'])) {
 			echo '<ul>';
 			if (isset($item['submenu'])) {
 				foreach($item['submenu'] as $_item) {
@@ -16,7 +15,7 @@
 			echo '</ul>';
 		}
 ?>
-				</li>
+				</div></li>
 <?
 	}
 ?>

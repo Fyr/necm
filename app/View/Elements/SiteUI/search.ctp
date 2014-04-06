@@ -1,23 +1,27 @@
 <?
 	$subcat = $aSubcategories[0];
+	$catID = Hash::get($this->request->query, 'data.Product.cat_id');	
+	$subcatID = Hash::get($this->request->query, 'data.Product.subcat_id');
 ?>
-<form action="" class="search_form">
+<form action="" class="search_form" method="get">
 	<div class="search_form_row">
 <?
 	echo $this->Form->input('Product.cat_id', array(
 		'options' => $aCategories, 
-		'value' => $this->request->data('Product.cat_id'),
+		'class' => 'autocompleteOff',
+		'value' => $catID,
 		'label' => __('Category'),
 		'onchange' => 'category_onChange(this)'
-	))
+	));
 ?>
 	</div>
 	<div class="search_form_row">
-			<select id="ProductSubCatId" name="data[Product][subcat_id]" autocomplete="off">
+			<select id="ProductSubCatId" name="data[Product][subcat_id]" class="autocompleteOff">
 				<optgroup id="cat-<?=$subcat['Category']['id']?>" label="<?=$subcat['Category']['title']?>">
 <?
 	$cat = $subcat['Category']['id'];
 	foreach($aSubcategories as $subcat) {
+		// $selected = ($subcat['Subcategory']['id'] == $subcatID) ? ' selected="selected"' : '';
 		if ($cat != $subcat['Category']['id']) {
 			$cat = $subcat['Category']['id'];
 ?>
@@ -47,8 +51,16 @@ function category_onChange(e, subcat_id) {
 	$optgroup.show();
 	$('#ProductSubCatId').val((subcat_id) ? subcat_id : $('option:first', $optgroup).attr('value'));
 }
+
+<?
+	if ($catID ||$subcatID) {
+?>
 $(document).ready(function(){
 	category_onChange($('#ProductCatId').get(0));
-	$('#ProductSubCatId').val(<?=$this->request->data('Product.subcat_id')?>);
+	$('#ProductSubCatId').val(<?=$subcatID?>);
+	$('#ProductCatId').val(<?=$catID?>);
 });
+<?
+	}
+?>
 </script>
