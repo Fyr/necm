@@ -1,7 +1,7 @@
 			<ul class="hn_ul">
 <?
 	foreach($aNavBar as $id => $item) {
-		$class = ($id == $currMenu) ? ' class="active"' : '';
+		$class = (strtolower($id) == strtolower($currMenu)) ? ' class="active"' : '';
 ?>
 				<li<?=$class?>><div class="fix"><?=$this->Html->link($item['label'], $item['href'])?>
 <?

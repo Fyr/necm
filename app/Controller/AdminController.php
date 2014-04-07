@@ -17,7 +17,7 @@ class AdminController extends AppController {
 			'Forms' => array('label' => __('Tech.params'), 'href' => array('controller' => 'Admin', 'action' => 'index')),
 			'Products' => array('label' => __('Products'), 'href' => array('controller' => 'AdminProducts', 'action' => 'index')),
 			'slider' => array('label' => __('Slider'), 'href' => array('controller' => 'AdminSlider', 'action' => 'index')),
-			'settings' => array('label' => __('Settings'), 'href' => array('controller' => 'Admin', 'action' => 'index'))
+			'settings' => array('label' => __('Settings'), 'href' => array('controller' => 'AdminSettings', 'action' => 'index'))
 		);
 		$this->aBottomLinks = $this->aNavBar;
 	}
@@ -62,4 +62,5 @@ class AdminController extends AppController {
 		}
 		$this->redirect(array('controller' => 'Admin', 'action' => 'index'));
 	}
+	
 }

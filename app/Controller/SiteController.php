@@ -6,7 +6,7 @@ class SiteController extends AppController {
 	public function _beforeInit() {
 		// $this->components = array_merge(array('Table.PCTableGrid'), $this->components);
 	    $this->helpers = array_merge(array('Html', 'Form', 'Paginator', 'Media', 'ArticleVars'), $this->helpers);
-	    $this->uses = array_merge(array('Media.Media', 'Category', 'Subcategory', 'News'), $this->uses);
+	    $this->uses = array_merge(array('Settings', 'Media.Media', 'Category', 'Subcategory', 'News'), $this->uses);
 	    
 		$this->aNavBar = array(
 			'Home' => array('label' => __('Home'), 'href' => array('controller' => 'SitePages', 'action' => 'home')),
@@ -16,6 +16,10 @@ class SiteController extends AppController {
 			'Contacts' => array('label' => __('Contacts'), 'href' => array('controller' => 'SiteContacts', 'action' => 'index'))
 		);
 		$this->aBottomLinks = $this->aNavBar;
+	}
+	
+	public function _afterInit() {
+		$this->Settings->initData();
 	}
 	
 	protected function _getCurrMenu() {

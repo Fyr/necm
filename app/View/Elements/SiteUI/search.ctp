@@ -16,6 +16,7 @@
 ?>
 	</div>
 	<div class="search_form_row">
+			<label for="ProductSubCatId"><?=__('Subcategory')?></label>
 			<select id="ProductSubCatId" name="data[Product][subcat_id]" class="autocompleteOff">
 				<optgroup id="cat-<?=$subcat['Category']['id']?>" label="<?=$subcat['Category']['title']?>">
 <?

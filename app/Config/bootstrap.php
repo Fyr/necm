@@ -16,7 +16,16 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
+Configure::write('Config.language', 'rus');
+
 CakePlugin::loadAll();
+
+// Values from google recaptcha account
+define('RECAPTCHA_PUBLIC_KEY', '6Lezy-QSAAAAAJ_mJK5OTDYAvPEhU_l-EoBN7rxV');
+define('RECAPTCHA_PRIVATE_KEY', '6Lezy-QSAAAAACCM1hh6ceRr445OYU_D_uA79UFZ');
+
+Configure::write('Recaptcha.publicKey', RECAPTCHA_PUBLIC_KEY);
+Configure::write('Recaptcha.privateKey', RECAPTCHA_PRIVATE_KEY);
 
 define('DOMAIN_NAME', 'necm.dev');
 define('DOMAIN_TITLE', 'NecM.dev');

@@ -1,4 +1,5 @@
 <?
+App::uses('AppModel', 'Model');
 App::uses('Article', 'Article.Model');
 class Product extends Article {
 	

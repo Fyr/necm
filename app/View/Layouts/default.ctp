@@ -32,8 +32,8 @@
 	    	<div class="head_top">
 				<a href="/" class="head_logo"><img src="/img/logo.jpg" alt=""></a>
 				<address class="head_address">
-					<span class="head_phone">+7 (097) 87 65 43</span>
-					<span class="head_street">г. Минск, пр. Независимости, 17</span>
+					<span class="head_phone"><?=Configure::read('Settings.phone1')?></span>
+					<span class="head_street"><?=Configure::read('Settings.office_address')?></span>
 				</address>
 	    	</div>
 			<nav class="head_navi">
@@ -96,8 +96,8 @@
 		<div class="width_fix">
 			<div class="footer_left">
 				<div class="footer_address">
-					<address class="footer_phone">+7 (097) 87 65 43</address>
-					<address class="footer_street">г. Минск, пр. Независимости, 17</address>
+					<address class="footer_phone"><?=Configure::read('Settings.phone1')?></address>
+					<address class="footer_street"><?=Configure::read('Settings.office_address')?></address>
 				</div>
 			</div>
 			<div class="footer_right">
@@ -108,7 +108,7 @@
 		</div>
 	</div>
 	<div class="cpr">
-		<div class="width_fix">Все права защищены, 2012</div>
+		<!--div class="width_fix">Все права защищены, 2012</div-->
 	</div>
 </footer>
 <?//$this->element('sql_dump'); ?>
