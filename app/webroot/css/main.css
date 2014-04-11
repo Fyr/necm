@@ -182,7 +182,7 @@ li.opened .side_lvl_1_n>a,li.opened .side_lvl_1_n>a:hover{display: block;padding
 .main_col_h_in>*{display: table-cell;vertical-align: middle;color: #fff;font-size: 18px;text-transform: uppercase;font-weight: normal;margin: 0;text-shadow:1px 1px 1px rgba(0,0,0,0.19);font-family: sansation;font-weight: bold;line-height: 18px;}
 .main_col_c{padding-left: 20px;padding-right: 20px;}
 
-.main_col_c_in{min-height: 300px;}
+.main_col_c_in{min-height: 200px;}
 .main_col_img{margin-bottom: 15px;}
 .main_2_cold{-webkit-column-count: 2;-moz-column-count: 2;column-count: 2;-webkit-column-gap: 30px;-moz-column-gap: 30px;column-gap: 30px;}
 .main_2_cold img {max-width: 315px;}

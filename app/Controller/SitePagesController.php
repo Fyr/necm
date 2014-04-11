@@ -15,11 +15,11 @@ class SitePagesController extends SiteController {
 		$this->pageTitle = $article['Page']['title'];
 		
 		// Новости
-		$news = $this->News->find('all', array('conditions' => array('published' => 1), 'order' => 'News.created DESC', 'limit' => 2));
+		$news = $this->News->find('all', array('conditions' => array('News.published' => 1), 'order' => 'News.created DESC', 'limit' => 2));
 		$this->set('news', $news);
 		
 		// Новинки
-		$products = $this->Product->find('all', array('conditions' => array('published' => 1), 'order' => 'Product.created DESC', 'limit' => 2));
+		$products = $this->Product->find('all', array('conditions' => array('Product.published' => 1), 'order' => 'Product.created DESC', 'limit' => 2));
 		$this->set('products', $products);
 	}
 	

@@ -1,3 +1,6 @@
+msgid "Username"
+msgstr "Пользователь"
+
 msgid "Invalid username or password, try again"
 msgstr "Неправильное имя пользователя или пароль"
 
