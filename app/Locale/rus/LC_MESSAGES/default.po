@@ -56,7 +56,7 @@ msgid "Upload files..."
 msgstr "Загрузка файлов..."
 
 msgid "Set as main"
-msgstr "Назначить главным"
+msgstr "Назначить осн."
 
 msgid "Delete"
 msgstr "Удалить"

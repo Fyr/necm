@@ -3,7 +3,7 @@ App::uses('AppController', 'Controller');
 App::uses('SiteController', 'Controller');
 class SiteProductsController extends SiteController {
 	public $name = 'SiteProducts';
-	public $uses = array('Product');
+	public $uses = array('Product', 'Form.PMFormValue');
 
 	public function index() {
 		$this->pageTitle = __('Products');
@@ -20,5 +20,7 @@ class SiteProductsController extends SiteController {
 		$article = $this->Product->findById($id);
 		$this->pageTitle = $article['Product']['title'];
 		$this->set('article', $article);
+		$this->set('techParams', $this->PMFormValue->getValues('ProductParam', $id));
+		$this->set('aMedia', $this->Media->getObjectList('Product', $id));
 	}
 }

@@ -81,12 +81,14 @@ html{background: url(../img/bg_1.jpg);}
     TYPOGRAPHY
 
    ========================================================================== */
+h1, h2, h3 {font-family: sansation}   
 h1{}
 h2{}
-h3{}
+h3{ font-size: 17px;}
 h4{}
 h5{}
 h6{}
+
 p{margin-top: 0;}
 a{color: #f78f1e;text-decoration: none;}
 a:hover{color: #D0720E;}
@@ -439,4 +441,14 @@ li.opened .side_lvl_1_n>a,li.opened .side_lvl_1_n>a:hover{display: block;padding
 .error, .error-message {
 	color: #f00;
 	font-weight: bold;
+}
+.tech-params th {
+	background: #F78F1E;
+}
+.tech-params td, .tech-params th {
+	padding: 5px 15px;
+	border-right: 2px solid #3B3C40;
+}
+.tech-params tr:nth-child(2n) {
+	background: #4B4C50;
 }
