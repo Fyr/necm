@@ -15,7 +15,7 @@
     		'class' => 'icon-color icon-open-folder', 
     		'href' => $this->Html->url(array('action' => 'index', 'Subcategory')).'/{$id}'
     	);
-    }
+    } 
 ?>
 <?=$this->element('admin_title', compact('title'))?>
 <div class="text-center">

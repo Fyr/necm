@@ -53,4 +53,5 @@ class AppModel extends Model {
 	public function getObjectList($objectType = '', $objectID = '') {
 		return $this->find('all', $this->_getObjectConditions($objectType, $objectID));
 	}
+	
 }

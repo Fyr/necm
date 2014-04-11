@@ -14,7 +14,7 @@ class AdminController extends AppController {
 			'Page' => array('label' => __('Static Pages'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Page')),
 			'News' => array('label' => __('News'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'News')),
 			'Category' => array('label' => __('Categories'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Category')),
-			'Forms' => array('label' => __('Tech.params'), 'href' => array('controller' => 'Admin', 'action' => 'index')),
+			'Forms' => array('label' => __('Tech.params'), 'href' => array('controller' => 'AdminFields', 'action' => 'index')),
 			'Products' => array('label' => __('Products'), 'href' => array('controller' => 'AdminProducts', 'action' => 'index')),
 			'slider' => array('label' => __('Slider'), 'href' => array('controller' => 'AdminSlider', 'action' => 'index')),
 			'settings' => array('label' => __('Settings'), 'href' => array('controller' => 'AdminSettings', 'action' => 'index'))

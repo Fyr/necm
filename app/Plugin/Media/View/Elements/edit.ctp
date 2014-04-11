@@ -17,14 +17,14 @@
 ?>
 	<table width="100%">
 	<tr>
-		<td width="20%" valign="middle">
+		<td width="25%" valign="middle">
             <span class="btn btn-primary fileinput-button">
     	        <i class="icon-plus icon-white"></i>
     	        <span><?=__('Upload files...');?></span>
     	        <input id="fileupload" type="file" name="files[]" multiple>
     	    </span>
 		</td>
-		<td width="80%" align="center" valign="middle">
+		<td width="75%" align="center" valign="middle">
 			<div id="progress" class="progress progress-primary progress-striped" style="margin-bottom: 0;">
                 <div class="bar"></div>
             </div>

@@ -3,7 +3,7 @@ App::uses('AdminController', 'Controller');
 class AdminContentController extends AdminController {
     public $name = 'AdminContent';
     public $components = array('Article.PCArticle');
-    public $uses = array('Category');
+    public $uses = array('Category', 'Form.FormField', 'Form.PMForm');
     public $helpers = array('ObjectType');
     
     public function index($objectType, $objectID = '') {
@@ -51,6 +51,19 @@ class AdminContentController extends AdminController {
 		$objectID = $this->request->data('Article.object_id');
 		
 		if ($lSaved) {
+			if ($objectType == 'Subcategory') {
+				// Save form for this subcategory
+				$form = $this->PMForm->getObject('Subcategory', $id);
+				if (!$form) {
+					$this->PMForm->save(array('object_type' => 'Subcategory', 'object_id' => $id));
+					$formID = $this->PMForm->id;
+				} else {
+					$formID = $form['PMForm']['id'];
+				}
+				
+				// Bind fields for saved form
+				$this->PMForm->bindFields($formID, explode(',', $this->request->data('FormKey.field_id')));
+			}
 			$baseRoute = array('action' => 'index', $objectType, $objectID);
 			return $this->redirect(($this->request->data('apply')) ? $baseRoute : array($id));
 		}
@@ -59,6 +72,19 @@ class AdminContentController extends AdminController {
 		if ($objectType == 'Subcategory' && $objectID) {
         	$this->set('category', $this->Category->findById($objectID));
         	$this->currMenu = 'Cetegory';
-        }
+        	
+			$this->paginate = array(
+	    		'fields' => array('field_type', 'label', 'fieldset', 'required'),
+	    		'limit' => 100
+	    	);
+	    	$this->PCTableGrid->paginate('FormField');
+	    	
+	    	$formKeys = array();
+	    	if ($id) {
+	    		$form = $this->PMForm->getObject('Subcategory', $id);
+	    		$formKeys = $this->PMForm->getFormKeys(Hash::get($form, 'PMForm.id'));
+	    	}
+	    	$this->set('formKeys', $formKeys);
+		}
 	}
 }
