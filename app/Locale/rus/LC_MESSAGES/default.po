@@ -16,6 +16,9 @@ msgstr "Категории"
 msgid "Tech.params"
 msgstr "Тех.параметры"
 
+msgid "Tech-params"
+msgstr "Тех.параметры"
+
 msgid "Products"
 msgstr "Продукция"
 
@@ -214,3 +217,20 @@ msgstr "Защита от спама"
 msgid "Send"
 msgstr "Отправить"
 
+msgid "General"
+msgstr "Общее"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Teaser"
+msgstr "Анонс"
+
+msgid "Published"
+msgstr "Опубликовано"
+
+msgid "Featured"
+msgstr "Особое"
