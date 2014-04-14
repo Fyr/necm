@@ -1,7 +1,7 @@
 <?
 	echo $this->element('Article.edit_status');
 	echo $this->PHForm->input('Product.cat_id', array(
-		'label' => array('class' => 'control-label', 'text' => 'Category'), 
+		'label' => array('class' => 'control-label', 'text' => __('Category')), 
 		'options' => $aCategories,
 		'value' => $this->request->data('Product.cat_id'),
 		'onchange' => 'category_onChange(this)'

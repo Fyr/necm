@@ -5,6 +5,13 @@
 ?>
 	<?=$this->element('admin_title', compact('title'))?>
 <?
+	if ($id) {
+		echo $this->Html->link(
+			'<i class="icon-search"></i> '.__('Preview'), 
+			array('controller' => 'SiteProducts', 'action' => 'view', $id), 
+			array('escape' => false, 'class' => 'pull-right btn btn-mini', 'target' => '_blank')
+		);
+	}
     echo $this->PHForm->create('Product');
     $aTabs = array(
         'General' => $this->element('/AdminContent/admin_edit_'.$objectType),

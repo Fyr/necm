@@ -234,3 +234,6 @@ msgstr "Опубликовано"
 
 msgid "Featured"
 msgstr "Особое"
+
+msgid "Preview"
+msgstr "Предпросмотр"
