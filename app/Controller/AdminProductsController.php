@@ -35,7 +35,9 @@ class AdminProductsController extends AdminController {
 			if ($this->request->is('put')) {
 				// save product params only for updated product
 				$form = $this->PMForm->getObject('Subcategory', $this->request->data('Subcategory.id'));
-				$this->PMFormValue->saveForm('ProductParam', $id, $form['PMForm']['id'], $this->request->data('PMFormValue'));
+				if ($form && ($data = $this->request->data('PMFormValue'))) {
+					$this->PMFormValue->saveForm('ProductParam', $id, $form['PMForm']['id'], $data);
+				}
 			}
 			$baseRoute = array('action' => 'index');
 			return $this->redirect(($this->request->data('apply')) ? $baseRoute : array($id));

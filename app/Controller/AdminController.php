@@ -13,11 +13,14 @@ class AdminController extends AppController {
 		$this->aNavBar = array(
 			'Page' => array('label' => __('Static Pages'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Page')),
 			'News' => array('label' => __('News'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'News')),
-			'Category' => array('label' => __('Categories'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Category')),
-			'Forms' => array('label' => __('Tech.params'), 'href' => array('controller' => 'AdminFields', 'action' => 'index')),
-			'Products' => array('label' => __('Products'), 'href' => array('controller' => 'AdminProducts', 'action' => 'index')),
-			'slider' => array('label' => __('Slider'), 'href' => array('controller' => 'AdminSlider', 'action' => 'index')),
-			'settings' => array('label' => __('Settings'), 'href' => array('controller' => 'AdminSettings', 'action' => 'index'))
+			'Products' => array('label' => __('Products'), 'href'=> '', 'submenu' => array(
+				'Forms' => array('label' => __('Tech.params'), 'href' => array('controller' => 'AdminFields', 'action' => 'index')),
+				'Categories' => array('label' => __('Categories'), 'href' => array('controller' => 'AdminContent', 'action' => 'index', 'Category')),
+				'Products' => array('label' => __('Products catalogue'), 'href' => array('controller' => 'AdminProducts', 'action' => 'index')),
+				'PDF' => array('label' => __('PDF Catalog'), 'href' => array('controller' => 'AdminPdf', 'action' => 'index'))
+			)),
+			'Slider' => array('label' => __('Slider'), 'href' => array('controller' => 'AdminSlider', 'action' => 'index')),
+			'Settings' => array('label' => __('Settings'), 'href' => array('controller' => 'AdminSettings', 'action' => 'index'))
 		);
 		$this->aBottomLinks = $this->aNavBar;
 	}
@@ -31,11 +34,12 @@ class AdminController extends AppController {
 	}
 	
 	protected function _getCurrMenu() {
-		$curr_menu = strtolower(str_ireplace('Admin', '', $this->request->controller)); // By default curr.menu is the same as controller name
+		$curr_menu = str_ireplace('Admin', '', $this->request->controller); // By default curr.menu is the same as controller name
 		foreach($this->aNavBar as $currMenu => $item) {
 			if (isset($item['submenu'])) {
 				foreach($item['submenu'] as $_currMenu => $_item) {
-					if (strtolower($_currMenu) === $curr_menu) {
+					// fdebug(strtolower($_currMenu) .'==='. strtolower($curr_menu)."\r\n");
+					if (strtolower($_currMenu) === strtolower($curr_menu)) {
 						return $currMenu;
 					}
 				}
@@ -50,9 +54,8 @@ class AdminController extends AppController {
 		$model = $this->request->query('model');
 		if ($model) {
 			$this->loadModel($model);
-			list($plugin, $model) = explode('.',$model);
-			if (!$model) {
-			    $model = $plugin;
+			if (strpos($model, '.') !== false) {
+				list($plugin, $model) = explode('.',$model);
 			}
 			$this->{$model}->delete($id);
 		}

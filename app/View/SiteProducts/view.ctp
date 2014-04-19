@@ -4,11 +4,8 @@
 <b>Категория: </b><?=$article['Category']['title']?><br />
 <b>Подкатегория: </b><?=$article['Subcategory']['title']?><br />
 <b>Цена: </b><?=$article['Product']['price']?><br />
-<h3>Описание</h3>
-<?=$article['Product']['body']?>
 <h3>Фото</h3>
 <?
-	fdebug($article);
 	if ($aMedia) {
 		foreach($aMedia as $media) {
 ?>
@@ -28,6 +25,8 @@ $(document).ready(function(){
 <?
 	}
 ?>
+<h3>Описание</h3>
+<?=$article['Product']['body']?>
 <h3>Технические характеристики</h3>
 <table class="tech-params" border="0">
 <thead>

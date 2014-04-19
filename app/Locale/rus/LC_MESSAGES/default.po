@@ -55,53 +55,8 @@ msgstr "Назад"
 msgid "Apply"
 msgstr "Применить"
 
-msgid "Upload files..."
-msgstr "Загрузка файлов..."
-
-msgid "Set as main"
-msgstr "Назначить осн."
-
 msgid "Delete"
 msgstr "Удалить"
-
-msgid "Original image"
-msgstr "Оригинальное изображение"
-
-msgid "Uploaded"
-msgstr "Загружено"
-
-msgid "File name"
-msgstr "Имя файла"
-
-msgid "File size"
-msgstr "Размер файла"
-
-msgid "Resolution"
-msgstr "Разрешение"
-
-msgid "Enlarge"
-msgstr "Увеличить"
-
-msgid "Links"
-msgstr "Ссылки"
-
-msgid "Original size"
-msgstr "Оригинальный размер"
-
-msgid "For editor"
-msgstr "Для редактора"
-
-msgid "Resize"
-msgstr "Изменить размеры"
-
-msgid "Width"
-msgstr "Ширина"
-
-msgid "Height"
-msgstr "Высота"
-
-msgid "Media URL"
-msgstr "Media URL"
 
 msgid "Add record"
 msgstr "Добавить запись"
@@ -237,3 +192,28 @@ msgstr "Особое"
 
 msgid "Preview"
 msgstr "Предпросмотр"
+
+msgid "Create Parameter"
+msgstr "Создать параметр"
+
+msgid "Edit Parameter"
+msgstr "Редактировать параметр"
+
+msgid "Field Type"
+msgstr "Тип поля"
+
+msgid "Label"
+msgstr "Метка"
+
+msgid "Fieldset"
+msgstr "Группа полей"
+
+msgid "Required"
+msgstr "Обязательно"
+
+msgid "Tech.params for subcategories"
+msgstr "Тех.параметры для подкатегорий"
+
+msgid "PDF Catalog"
+msgstr "PDF-версия каталога"
+

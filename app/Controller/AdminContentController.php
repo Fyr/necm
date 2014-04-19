@@ -28,10 +28,9 @@ class AdminContentController extends AdminController {
         $this->set('objectType', $objectType);
         $this->set('objectID', $objectID);
         
-        $this->currMenu = $objectType;
+        $this->currMenu = (in_array($objectType, array('Category', 'Subcategory'))) ? 'Products' : $objectType;
         if ($objectType == 'Subcategory' && $objectID) {
         	$this->set('category', $this->Category->findById($objectID));
-        	$this->currMenu = 'Cetegory';
         }
         
     }
@@ -68,14 +67,12 @@ class AdminContentController extends AdminController {
 			return $this->redirect(($this->request->data('apply')) ? $baseRoute : array($id));
 		}
 		
-		$this->currMenu = $objectType;
+		$this->currMenu = (in_array($objectType, array('Category', 'Subcategory'))) ? 'Products' : $objectType;
 		if ($objectType == 'Subcategory' && $objectID) {
         	$this->set('category', $this->Category->findById($objectID));
-        	$this->currMenu = 'Cetegory';
-        	
 			$this->paginate = array(
 	    		'fields' => array('field_type', 'label', 'fieldset', 'required'),
-	    		'limit' => 100
+	    		'limit' => 1000
 	    	);
 	    	$this->PCTableGrid->paginate('FormField');
 	    	
