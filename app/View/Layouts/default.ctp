@@ -58,6 +58,15 @@
 							</nav>
 						</div>
 					</div>
+					
+					<div class="side_block">
+						<div class="side_h">
+							<div class="side_h_in">Скачать каталог</div>
+						</div>
+						<div class="side_content">
+							<?=$this->element('/SiteUI/download_pdf')?>
+						</div>
+					</div>	
 
 					<div class="side_block">
 						<div class="side_h">

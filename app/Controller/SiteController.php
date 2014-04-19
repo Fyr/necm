@@ -46,6 +46,9 @@ class SiteController extends AppController {
 	
 	
 	public function beforeRender() {
+		$this->loadModel('Media.Media');
+		$this->Media = new Media();
+		
 		$this->set('aSlider', $this->Media->getObjectList('Slider'));
 		$aCategories = $this->Category->getOptions('Category');
 		$this->set('aCategories', $aCategories);
@@ -64,6 +67,10 @@ class SiteController extends AppController {
 				'href' => array('controller' => 'SiteProducts', 'action' => 'index', '?' => array('data[Product][cat_id]' => $cat_id))
 			);
 		}
+		
+		$object_type = 'PDFCatalog';
+		$pdf = $this->Media->getList(compact('object_type'));
+		$this->set('pdf', (Hash::get($pdf, '0.Media.id')) ? Hash::get($pdf, '0.Media') : false);
 		parent::beforeRender();
 	}
 }
