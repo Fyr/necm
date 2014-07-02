@@ -27,6 +27,9 @@ $(document).ready(function(){
 ?>
 <h3>Описание</h3>
 <?=$article['Product']['body']?>
+<?
+	if ($techParams) {
+?>
 <h3>Технические характеристики</h3>
 <table class="tech-params" border="0">
 <thead>
@@ -46,3 +49,6 @@ $(document).ready(function(){
 ?>
 </tbody>
 </table>
+<?
+	}
+?>

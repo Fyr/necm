@@ -58,7 +58,9 @@
 							</nav>
 						</div>
 					</div>
-					
+<?
+	if ($pdf) {
+?>
 					<div class="side_block">
 						<div class="side_h">
 							<div class="side_h_in">Скачать каталог</div>
@@ -67,7 +69,9 @@
 							<?=$this->element('/SiteUI/download_pdf')?>
 						</div>
 					</div>	
-
+<?
+	}
+?>
 					<div class="side_block">
 						<div class="side_h">
 							<div class="side_h_in">поиск</div>

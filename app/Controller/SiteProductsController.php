@@ -3,7 +3,7 @@ App::uses('AppController', 'Controller');
 App::uses('SiteController', 'Controller');
 class SiteProductsController extends SiteController {
 	public $name = 'SiteProducts';
-	public $uses = array('Product', 'Form.PMFormValue');
+	public $uses = array('Product', 'Form.PMFormValue', 'Media.Media');
 
 	public function index() {
 		$this->pageTitle = __('Products');
@@ -13,7 +13,11 @@ class SiteProductsController extends SiteController {
 			'order' => 'Product.created DESC'
 		);
 		$this->paginate['conditions'] = array_merge($this->paginate['conditions'], $this->postConditions($this->params->query['data']));
-		$this->set('products', $this->paginate('Product'));
+		$products = $this->paginate('Product');
+		if (count($products) == 1) {
+			$this->redirect(array('action' => 'view', Hash::get($products[0], 'Product.id')));
+		}
+		$this->set('products', $products);
 	}
 	
 	public function view($id) {

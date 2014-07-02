@@ -3,7 +3,7 @@ App::uses('AppController', 'Controller');
 App::uses('SiteController', 'Controller');
 class SitePagesController extends SiteController {
 	public $name = 'SitePages';
-	public $uses = array('Page', 'News', 'Product');
+	public $uses = array('Page', 'Product');
 	// public $helpers = array('ArticleVars');
 
 	public function home() {

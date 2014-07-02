@@ -8,7 +8,7 @@ App::uses('Component', 'Controller');
 class PCTableGridComponent extends Component {
 	public $components = array('Paginator');
 
-	const LIMIT = 1000;
+	const LIMIT = 10;
 	
 	private $_;
 	private $model, $paginate = array(), $defaults = array();
@@ -32,6 +32,15 @@ class PCTableGridComponent extends Component {
 	 */
 	private function _getDefaultOrder() {
 		//$order = array($this->model->name.'.'.$this->model->primaryKey => 'asc');
+		if (isset($this->paginate['order'])) {
+			/*
+			if (is_array($this->paginate['order'])) {
+				
+			}
+			return $this->_normalizeField($this->model->alias, $this->paginate['order']);
+			*/
+			return $this->paginate['order'];
+		}
 		if (in_array($this->model->alias.'.modified', $this->paginate['fields'])) {
 			$order = array($this->model->alias.'.modified' => 'desc');
 		} else if (in_array($this->model->alias.'.created', $this->paginate['fields'])) {

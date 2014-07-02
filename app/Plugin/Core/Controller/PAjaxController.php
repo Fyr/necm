@@ -8,7 +8,7 @@ class PAjaxController extends AppController {
 	
 	protected $_response = null;
 	
-	protected function _beforeInit() {
+	public function _beforeInit() {
 	    $this->components[] = 'RequestHandler';
 	}
 	

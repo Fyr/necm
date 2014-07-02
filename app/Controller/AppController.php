@@ -1,6 +1,7 @@
 <?php
 App::uses('Controller', 'Controller');
 class AppController extends Controller {
+	public $uses = array();
     public $paginate;
 	public $aNavBar = array(), $aBottomLinks = array(), $currMenu = '', $currLink = '', $pageTitle = '';
     
@@ -10,11 +11,11 @@ class AppController extends Controller {
 	    $this->_afterInit();
 	}
 	
-	protected function _beforeInit() {
+	public function _beforeInit() {
 	    // Add here components, models, helpers etc that will be also loaded while extending child class
 	}
 
-	protected function _afterInit() {
+	public function _afterInit() {
 	    // after construct actions here
 	}
 	

@@ -10,7 +10,7 @@ class SiteNewsController extends SiteController {
 		$this->pageTitle = __('News');
 		$this->paginate = array(
 			'conditions' => array('published' => 1),
-			'limit' => 2, 
+			'limit' => 10, 
 			'order' => 'News.created DESC'
 		);
 		$this->set('news', $this->paginate('News'));

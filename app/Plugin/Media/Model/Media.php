@@ -1,6 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
-class Media extends AppModel {
+class Media extends MediaAppModel {
     const MKDIR_MODE = 0755;
     
     public $types = array('image', 'audio', 'video', 'bin_file');

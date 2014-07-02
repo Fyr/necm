@@ -61,7 +61,8 @@ class AdminContentController extends AdminController {
 				}
 				
 				// Bind fields for saved form
-				$this->PMForm->bindFields($formID, explode(',', $this->request->data('FormKey.field_id')));
+				$fields = $this->request->data('FormKey.field_id');
+				$this->PMForm->bindFields($formID, ($fields) ? explode(',', $fields) : array());
 			}
 			$baseRoute = array('action' => 'index', $objectType, $objectID);
 			return $this->redirect(($this->request->data('apply')) ? $baseRoute : array($id));
