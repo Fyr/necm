@@ -3,7 +3,7 @@
 	$catID = Hash::get($this->request->query, 'data.Product.cat_id');	
 	$subcatID = Hash::get($this->request->query, 'data.Product.subcat_id');
 ?>
-<form action="" class="search_form" method="get">
+<form action="<?= $this->Html->url(array('controller' => 'SiteProducts', 'action' => 'index')) ?>" class="search_form" method="get">
 	<div class="search_form_row">
 <?
 	echo $this->Form->input('Product.cat_id', array(
@@ -39,7 +39,7 @@
 			</select>
 	</div>
 
-	<div class="search_form_row"><label for="">Название</label><input type="text" class="input_text"></div>
+	<div class="search_form_row"><label for="">Название</label><input name="data[search_text]" type="text" class="input_text"></div>
 
 	<div class="search_form_row">
 		<input type="submit" value="Найти" class="button orange_button">

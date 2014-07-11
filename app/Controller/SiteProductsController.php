@@ -6,6 +6,10 @@ class SiteProductsController extends SiteController {
 	public $uses = array('Product', 'Form.PMFormValue', 'Media.Media');
 
 	public function index() {
+	    if (isset($this->params->query['data']['search_text'])) {
+		$searchText = $this->params->query['data']['search_text'];
+		unset($this->params->query['data']['search_text']);
+	    }
 		$this->pageTitle = __('Products');
 		$this->paginate = array(
 			'conditions' => array('Product.published' => 1),
